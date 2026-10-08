@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bináris játék</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h2>Bináris játék</h2>
+    <p>Alakítsd át binárisra:</p>
+    <h3 id="szam"></h3>
+
+    <input id="valasz">
+    <button onclick="ellenoriz()">Ellenőrzés</button>
+    <p id="eredmeny"></p>
+
+    <script>
+    let szam = Math.floor(Math.random() * 16);
+    document.getElementById("szam").innerHTML = szam;
+
+    function ellenoriz() {
+      let jo = szam.toString(2);
+      let v = document.getElementById("valasz").value;
+
+      if (v == jo) {
+        document.getElementById("eredmeny").innerHTML = "✅ Helyes!";
+        szam = Math.floor(Math.random() * 16);
+        document.getElementById("szam").innerHTML = szam;
+      } else {
+        document.getElementById("eredmeny").innerHTML = "❌ Próbáld újra!";
+      }
+    }
+    </script>
+  </body>
+</html>
